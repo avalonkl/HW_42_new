@@ -8,12 +8,12 @@ import java.util.logging.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Firefox {
+public class Edge {
 
 	static Properties p = new Properties();
 	static Writer report;
@@ -56,15 +56,14 @@ public class Firefox {
 		p.load(new FileInputStream("input.properties"));
 		report = new FileWriter("./report_01.csv", false);
 		String driverPath = "";
-		if (System.getProperty("os.name").toUpperCase().contains("MAC")
-				|| System.getProperty("os.name").toUpperCase().contains("LINUX"))
-			driverPath = "/usr/local/bin/geckodriver.sh";
+		if (System.getProperty("os.name").toUpperCase().contains("MAC"))
+			driverPath = "/usr/local/bin/msedgedriver.sh";
 		else if (System.getProperty("os.name").toUpperCase().contains("WINDOWS"))
-			driverPath = "c:\\windows\\geckodriver.exe";
+			driverPath = "c:\\windows\\msedgedriver.exe";
 		else
 			throw new IllegalArgumentException("Unknown OS");
-		System.setProperty("webdriver.gecko.driver", driverPath);
-		driver = new FirefoxDriver();
+		System.setProperty("webdriver.edge.driver", driverPath);
+		driver = new EdgeDriver();
 
 		Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
 		String browserName = cap.getBrowserName();

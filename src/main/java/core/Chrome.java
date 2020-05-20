@@ -8,12 +8,13 @@ import java.util.logging.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Firefox {
+public class Chrome {
 
 	static Properties p = new Properties();
 	static Writer report;
@@ -58,13 +59,18 @@ public class Firefox {
 		String driverPath = "";
 		if (System.getProperty("os.name").toUpperCase().contains("MAC")
 				|| System.getProperty("os.name").toUpperCase().contains("LINUX"))
-			driverPath = "/usr/local/bin/geckodriver.sh";
+			driverPath = "/usr/local/bin/chromedriver";
 		else if (System.getProperty("os.name").toUpperCase().contains("WINDOWS"))
-			driverPath = "c:\\windows\\geckodriver.exe";
+			driverPath = "c:\\windows\\chromedriver.exe";
 		else
 			throw new IllegalArgumentException("Unknown OS");
-		System.setProperty("webdriver.gecko.driver", driverPath);
-		driver = new FirefoxDriver();
+		System.setProperty("webdriver.chrome.driver", driverPath);
+		System.setProperty("webdriver.chrome.silentOutput", "true"); // Chrome
+		ChromeOptions option = new ChromeOptions(); // Chrome
+		option.addArguments("disable-infobars"); // Chrome
+		option.addArguments("--disable-notifications"); // Chrome
+
+		driver = new ChromeDriver();
 
 		Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
 		String browserName = cap.getBrowserName();

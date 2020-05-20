@@ -8,12 +8,12 @@ import java.util.logging.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Firefox {
+public class Safari {
 
 	static Properties p = new Properties();
 	static Writer report;
@@ -55,16 +55,11 @@ public class Firefox {
 		Logger.getLogger("").setLevel(Level.OFF);
 		p.load(new FileInputStream("input.properties"));
 		report = new FileWriter("./report_01.csv", false);
-		String driverPath = "";
-		if (System.getProperty("os.name").toUpperCase().contains("MAC")
-				|| System.getProperty("os.name").toUpperCase().contains("LINUX"))
-			driverPath = "/usr/local/bin/geckodriver.sh";
-		else if (System.getProperty("os.name").toUpperCase().contains("WINDOWS"))
-			driverPath = "c:\\windows\\geckodriver.exe";
-		else
+
+		if (!System.getProperty("os.name").toUpperCase().contains("MAC"))
 			throw new IllegalArgumentException("Unknown OS");
-		System.setProperty("webdriver.gecko.driver", driverPath);
-		driver = new FirefoxDriver();
+
+		driver = new SafariDriver();
 
 		Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
 		String browserName = cap.getBrowserName();
