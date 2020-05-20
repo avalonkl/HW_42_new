@@ -63,7 +63,7 @@ public class Chrome {
 		else if (System.getProperty("os.name").toUpperCase().contains("WINDOWS"))
 			driverPath = "c:\\windows\\chromedriver.exe";
 		else
-			throw new IllegalArgumentException("Unknown OS");
+			throw new IllegalArgumentException("Browser dosn't exist for this OS");
 		System.setProperty("webdriver.chrome.driver", driverPath);
 		System.setProperty("webdriver.chrome.silentOutput", "true"); // Chrome
 		ChromeOptions option = new ChromeOptions(); // Chrome

@@ -69,7 +69,7 @@ public class HtmlUnit {
 			setValue(index_page, idElement[i], valueElement[i]);
 		}
 		
-		HtmlSubmitInput button = form.getInputByValue(p.getProperty("submit_id"));
+		HtmlSubmitInput button = form.getInputByValue(p.getProperty("submit_value"));
 		HtmlPage confirmation_page = button.click();
 
 		

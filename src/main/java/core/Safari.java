@@ -57,7 +57,7 @@ public class Safari {
 		report = new FileWriter("./report_01.csv", false);
 
 		if (!System.getProperty("os.name").toUpperCase().contains("MAC"))
-			throw new IllegalArgumentException("Unknown OS");
+			throw new IllegalArgumentException("Browser dosn't exist for this OS");
 
 		driver = new SafariDriver();
 

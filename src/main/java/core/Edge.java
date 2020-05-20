@@ -61,7 +61,7 @@ public class Edge {
 		else if (System.getProperty("os.name").toUpperCase().contains("WINDOWS"))
 			driverPath = "c:\\windows\\msedgedriver.exe";
 		else
-			throw new IllegalArgumentException("Unknown OS");
+			throw new IllegalArgumentException("Browser dosn't exist for this OS");
 		System.setProperty("webdriver.edge.driver", driverPath);
 		driver = new EdgeDriver();
 

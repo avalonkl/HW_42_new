@@ -62,7 +62,7 @@ public class Firefox {
 		else if (System.getProperty("os.name").toUpperCase().contains("WINDOWS"))
 			driverPath = "c:\\windows\\geckodriver.exe";
 		else
-			throw new IllegalArgumentException("Unknown OS");
+			throw new IllegalArgumentException("Browser dosn't exist for this OS");
 		System.setProperty("webdriver.gecko.driver", driverPath);
 		driver = new FirefoxDriver();
 
