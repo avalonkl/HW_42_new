@@ -47,7 +47,7 @@ public class Safari {
 
 	public static String getValue(By by) {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		return isElementPresent(by) && driver.findElement(by).isDisplayed() ? driver.findElement(by).getText() : "null";
+		return isElementPresent(by) && driver.findElement(by).isDisplayed() ? driver.findElement(by).getText().trim() : "null";
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -87,7 +87,7 @@ public class Safari {
 			setValue(By.id(idElement[i]), valueElement[i]);
 		}
 
-		driver.findElement(By.id(p.getProperty("submit_id"))).submit();
+		driver.findElement(By.id(p.getProperty("submit_id"))).click();
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.titleIs("Confirmation"));
 
