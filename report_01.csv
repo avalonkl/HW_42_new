@@ -1,9 +1,9 @@
-#,Browser,Page,Field,isPresent,Value, Size, Location
-1,Safari,index.php,First Name,true,John,(387x42),(434x181)
-2,Safari,index.php,Last Name,true,Smith,(387x42),(859x181)
-3,Safari,index.php,Email,true,john_smith@gmail.com,(387x42),(434x261)
-4,Safari,index.php,Phone,true,(415)555-1212,(387x42),(859x261)
-5,Safari,confirmation.php,First Name,true,John,(67x42),(441x182)
-6,Safari,confirmation.php,Last Name,true,Smith,(77x42),(866x182)
-7,Safari,confirmation.php,Email,true,john_smith@gmail.com,(281x42),(441x266)
-8,Safari,confirmation.php,Phone,true,(415)555-1212,(181x42),(866x266)
+#,Browser,Page,Field,isPresent,Value
+01,HtmlUnit,index.php,First Name,true,John
+02,HtmlUnit,index.php,Last Name,true,Smith
+03,HtmlUnit,index.php,Email,true,john_smith@gmail.com
+04,HtmlUnit,index.php,Phone,true,415 555-1212
+05,HtmlUnit,confirmation.php,First Name,true,John
+06,HtmlUnit,confirmation.php,Last Name,true,Smith
+07,HtmlUnit,confirmation.php,Email,true,john_smith@gmail.com
+08,HtmlUnit,confirmation.php,Phone,true,415 555-1212

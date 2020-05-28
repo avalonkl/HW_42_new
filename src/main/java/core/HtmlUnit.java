@@ -33,7 +33,7 @@ public class HtmlUnit {
 		return isElementPresent(page, by) && page.getElementById(by).isDisplayed() ? page.getElementById(by).getTextContent() : "null";
 	}
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		
 		Logger.getLogger("").setLevel(Level.OFF);
 		p.load(new FileInputStream("input.properties"));
@@ -63,6 +63,8 @@ public class HtmlUnit {
 		String[] valueElement = p.getProperty("value").split(",");
 		String[] nameElement = p.getProperty("name").split(",");
 		
+		System.out.println(getValue(index_page, "id_quotes"));
+		
 		for (int i = 0; i < idElement.length; i++) {
 			report.write((i + 1) + "," + browserName + ",index.php," + nameElement[i] + "," + isElementPresent(index_page, idElement[i]) + "," + valueElement[i] + "\n");
 			System.out.print((i + 1) + "," + browserName + ",index.php," + nameElement[i] + "," + isElementPresent(index_page, idElement[i]) + "," + valueElement[i] + "\n");
@@ -71,6 +73,9 @@ public class HtmlUnit {
 		
 		HtmlSubmitInput button = form.getInputByValue(p.getProperty("submit_value"));
 		HtmlPage confirmation_page = button.click();
+		Thread.sleep(1000);
+		
+		System.out.println(getValue(index_page, "id_quotes"));
 
 		
 		for (int i = 0; i < idElement.length; i++) {
